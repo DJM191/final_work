@@ -37,7 +37,14 @@ jobs:
           
           sed -i 's/build: \./image: ${{ secrets.DOCKER_HUB_USERNAME }}\/finall_lab:latest/' docker-compose.yml
           
-          docker-compose down || true
-          docker-compose pull
+          max_retries=3
+          retry_count=0
+          while [ $retry_count -lt $max_retries ]; do
+            docker-compose down || true
+            docker-compose pull && break
+            retry_count=$((retry_count+1))
+            echo ">>> Pull failed, retrying ($retry_count/$max_retries)..."
+            sleep 5
+          done
           docker-compose up -d
           docker-compose ps
