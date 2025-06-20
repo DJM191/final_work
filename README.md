@@ -4,6 +4,6 @@
 
 **Student ID:** 20232068
 
-**Personal Website URL:** https://DJM191.github.io/final_work
+**Personal Website URL:** https://34.228.157.144:8082
 
-**Todo Application URL:** https://DJM191.github.io/final_work/todo-app.html
+**Todo Application URL:** https://34.228.157.144:8083
